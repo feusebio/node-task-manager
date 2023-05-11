@@ -1,7 +1,4 @@
-
-
 import connection from '../db/connect_mysql.js'
-// const connectDB = require('../db/connect_mysql')
 
 //Task object create
 class Task {
@@ -30,20 +27,17 @@ class Task {
             }
         })
     }
-    static  findAll(result) {
+    static findAll(result) {
         connection.query("SELECT * FROM tasks", (err, res) => {
             if (err) {
                 console.log("error: ", err)
                 result(err, null)
             } else {
                 console.log('tasks: ', res)
-                result(null, res.id)
+                result(null, res)
             }
         })
     }
 }
-
-
-
 
 export default Task
