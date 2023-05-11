@@ -1,15 +1,15 @@
 //require('./db/connect_mongo')
 
-const express = require("express");
+import express from "express";
 const app = express();
-const tasks = require('./routes/tasks');
-const connectDB = require('./db/connect_mysql')
+import tasks from './routes/tasks.routes.js';
+import connectDB from './db/connect_mysql.js';
 
 const port = 3000
 
 const start = async () => {
 	try {
-		await connectDB()
+		// await connectDB()
 		app.listen(port, function () {
 			console.log(`listening on port ${port}...`);
 		});		
