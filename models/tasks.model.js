@@ -3,11 +3,13 @@ import connection from '../db/connect_mysql.js'
 //Task object create
 class Task {
     constructor(task) {
-        this.name = task.name,
-        this.description = task.description
+        this.name        = task.name,
+        this.description = task.description,
+        this.created_at  = new Date()
+        this.updated_at  = new Date()
     }
     static create(newTask, result) {
-        query("INSERT INTO tasks SET ?", newTask, (err, result) => {
+        connection.query("INSERT INTO tasks SET ?", newTask, (err, res) => {
             if (err) {
                 console.log("error: ", err)
                 result(err, null)
@@ -18,12 +20,12 @@ class Task {
         })
     }
     static findById(id, result) {
-        query("SELECT * FROM tasks WHERE ID = ?", id, (err, result) => {
+        connection.query("SELECT * FROM tasks WHERE ID = ?", id, (err, result) => {
             if (err) {
                 console.log("error: ", err)
                 result(err, null)
             } else {
-                result(null, res.insertId)
+                result(null, res.id)
             }
         })
     }

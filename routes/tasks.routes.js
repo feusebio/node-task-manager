@@ -11,12 +11,9 @@ const router = express.Router()
 
 import Task from '../controllers/tasks.controller.js'
 
-router.get("/", Task.getAllTasks)
-// router.get('/', (req, res) => {
-//     res.send('Home page of books route');
-//   });
-// router.route('/').get(getAllTasks)
-// router.route('/').get(getAllTasks).post(createTask)
+router.route('/').get(Task.getAll)
+// router.route('/').get(Task.getAll).post(Task.create)
+router.post("/", Task.create)
 // router.route('/:id').get(getTask).patch(updateTask).delete(deleteTask)
 
 export default router

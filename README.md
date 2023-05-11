@@ -12,3 +12,17 @@ cd node-task-manager
 npm install
 npm start
 ```
+## 2) Setup database
+``` 
+CREATE DATABASE app_tasks;
+CREATE  TABLE IF NOT EXISTS `tasks` (...
+INSERT INTO `app_tasks`.`tasks`...
+...
+```
+## 3) Create a .env file w/ settings
+``` 
+DB_HOST='localhost'
+DB_USER='admin'
+DB_PW='*********'
+DB_NAME='app_tasks'
+```

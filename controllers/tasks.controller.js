@@ -1,6 +1,6 @@
 import Task from '../models/tasks.model.js'
 
-const getAllTasks = (req,res) => {
+const getAll = (req,res) => {
     Task.findAll((err, task) => {
         if (err)
         res.send(err)
@@ -9,9 +9,19 @@ const getAllTasks = (req,res) => {
     })
 }
 
-// const createTask = (req,res) => {
-//     res.json(req.body)
-// }
+const create = (req,res) => {
+    const new_task = new Task(req.body);
+    //handles null error
+    if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
+        res.status(400).send({ error:true, message: 'Please provide all required field' });
+    } else {
+        Task.create(new_task, (err, task) => {
+            if (err)
+                res.send(err);
+                res.json({ error:false, message:"Task added successfully!", task });
+        })
+    }
+}
 
 // const getTask = (req,res) => {
 //     res.json({id:req.params.id})
@@ -26,8 +36,8 @@ const getAllTasks = (req,res) => {
 // }
 
 export default {
-    getAllTasks
-    // createTask,
+    getAll,
+    create
     // getTask,
     // updateTask,
     // deleteTask

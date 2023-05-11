@@ -18,6 +18,8 @@ const start = async () => {
 	}
 }
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use('/api/v1/tasks', tasks)
 
 start()
