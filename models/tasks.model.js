@@ -30,14 +30,14 @@ class Task {
             }
         })
     }
-    static findAll(result) {
-        connection.query("SELECT * FROM tasks", (err, result) => {
+    static  findAll(result) {
+        connection.query("SELECT * FROM tasks", (err, res) => {
             if (err) {
                 console.log("error: ", err)
                 result(err, null)
             } else {
                 console.log('tasks: ', res)
-                result(null, res.insertId)
+                result(null, res.id)
             }
         })
     }
