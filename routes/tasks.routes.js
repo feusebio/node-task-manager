@@ -1,14 +1,6 @@
 import express from 'express'
 const router = express.Router()
 
-// const { 
-//     getAllTasks,
-//     createTask,
-//     getTask,
-//     updateTask,
-//     deleteTask 
-// } = require('../controllers/tasks.controller')
-
 import Task from '../controllers/tasks.controller.js'
 
 router.route('/').get(Task.getAll)
