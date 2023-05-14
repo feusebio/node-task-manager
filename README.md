@@ -1,5 +1,5 @@
 # node-task-manager
-NodeJs task manager API
+NodeJs task manager API (ES Modules structure)
 ## PART I: Download & Build on local
 
 ## Method 1: From github
@@ -20,12 +20,13 @@ CREATE DATABASE app_tasks;
 CREATE TABLE `tasks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  `summary` varchar(255) DEFAULT NULL,
+  `summary` text DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL,
   `performed_at` datetime DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`));
+
 
 
 # Table Users
