@@ -4,7 +4,7 @@ import connection from '../db/connect_mysql.js'
 class Task {
     constructor(task) {
         this.name        = task.name,
-        this.description = task.description,
+        this.summary = task.summary,
         this.created_at  = new Date()
         this.updated_at  = new Date()
     }
